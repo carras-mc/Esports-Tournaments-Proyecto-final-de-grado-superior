@@ -31,19 +31,7 @@ public class DataSeeder implements CommandLineRunner {
         
         if (torneoRepository.count() == 0) {
 
-           Torneo torneo = Torneo.builder()
-                .nombre("El Seeder Tournament")
-                .estado(EstadoTorneo.INSCRIPCION_ABIERTA)
-                .capacidadMaxima(6)
-                .juego("CSGO 2")
-                .fechaInicio(LocalDateTime.of(2026, 10, 20, 20, 0))
-                .fechaFinal(LocalDateTime.of(2026, 10, 25, 22, 30))
-                .maxJugadoresTitulares(5)
-                .maxSuplentes(2)
-                .visibilidadTorneo(VisibilidadTorneo.PUBLICO)
-                .build();
-
-            torneoRepository.save(torneo);
+           
             
             Equipo equipo = Equipo.builder()
                 .nombre("We are the seed")
@@ -65,6 +53,21 @@ public class DataSeeder implements CommandLineRunner {
                 .build();
 
             usuarioRepository.save(usuario);
+
+            Torneo torneo = Torneo.builder()
+                .nombre("El Seeder Tournament")
+                .estado(EstadoTorneo.INSCRIPCION_ABIERTA)
+                .capacidadMaxima(6)
+                .juego("CSGO 2")
+                .fechaInicio(LocalDateTime.of(2026, 10, 20, 20, 0))
+                .fechaFinal(LocalDateTime.of(2026, 10, 25, 22, 30))
+                .maxJugadoresTitulares(5)
+                .maxSuplentes(2)
+                .visibilidadTorneo(VisibilidadTorneo.PUBLICO)
+                .creador(usuario)
+                .build();
+
+            torneoRepository.save(torneo);
                     
             System.out.println("¡Datos de prueba inicializados con éxito!");
         }

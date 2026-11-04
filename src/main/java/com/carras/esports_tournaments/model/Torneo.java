@@ -30,14 +30,13 @@ public class Torneo {
     @Column(nullable = false)
     private String nombre;
 
+    @Column(nullable = false)
+    private Usuario creador;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     @Builder.Default
     private EstadoTorneo estado = EstadoTorneo.INSCRIPCION_ABIERTA;
-
-    //MAX EQUIPOS
-    @Column(name = "capacidad_maxima", nullable = false)
-    private Integer capacidadMaxima;
 
     @OneToMany(mappedBy = "torneo")
     @Builder.Default
@@ -55,6 +54,10 @@ public class Torneo {
 
     @Column(name = "fecha_final", nullable = false)
     private LocalDateTime fechaFinal;
+
+    //MAX EQUIPOS
+    @Column(name = "capacidad_maxima", nullable = false)
+    private Integer capacidadMaxima;
 
     @Column(name = "jugadores_titulares", nullable = false)
     private Integer maxJugadoresTitulares;

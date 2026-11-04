@@ -2,6 +2,7 @@ package com.carras.esports_tournaments.model;
 
 import com.carras.esports_tournaments.model.enums.EstadoSolicitudInscripcion;
 import com.carras.esports_tournaments.model.enums.RolJugador;
+import com.carras.esports_tournaments.model.enums.RolMiembro;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -62,5 +62,9 @@ public class Inscripcion {
     @Column(name = "fecha_inscripcion", nullable = false, updatable = false)
     @Builder.Default
     private LocalDateTime fechaInscripcion = LocalDateTime.now();
+
+    public void addJugadorAlRoster(JugadorInscrito jugadorInscrito) {
+        roster.add(jugadorInscrito);
+    }
   
 }
