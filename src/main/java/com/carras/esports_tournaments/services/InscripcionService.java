@@ -77,7 +77,7 @@ public class InscripcionService {
             .id(inscripcion.getId())
             .nombreTorneo(inscripcion.getTorneo().getNombre())
             .nombreEquipo(inscripcion.getEquipo().getNombre())
-            .usuarioAccion(inscripcion.getUsuarioAccion().getNombre())
+            .nombreUsuarioAccion(inscripcion.getUsuarioAccion().getNombre())
             .roster(nombresRoster)
             .estadoInscripcion(inscripcion.getEstado())
             .fecha(inscripcion.getFechaInscripcion())

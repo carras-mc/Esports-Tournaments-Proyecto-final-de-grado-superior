@@ -22,7 +22,7 @@ public class InscripcionResponseDto {
     private Long id;
     private String nombreTorneo;
     private String nombreEquipo;
-    private String usuarioAccion;
+    private String nombreUsuarioAccion;
     private List<String> roster;
     private EstadoInscripcion estadoInscripcion;
     private LocalDateTime fecha;
