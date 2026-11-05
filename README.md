@@ -181,4 +181,4 @@ La API quedará expuesta en `http://localhost:8080`.
 - [ ] **Fase 4 (Documentación & QA):** Aumentar el Code Coverage con Mockito y documentar la API visualmente usando OpenAPI / Swagger UI.
 
 ---
-**Desarrollado con ☕ por [Tu Nombre]** - Estudiante de Desarrollo de Aplicaciones Web (DAW) buscando oportunidades de prácticas.
+**Desarrollado con ☕ por Marcos Muñoz Carrasco** - Estudiante de Desarrollo de Aplicaciones Web (DAW) buscando oportunidades de prácticas.
