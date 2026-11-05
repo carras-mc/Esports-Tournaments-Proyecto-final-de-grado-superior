@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.carras.esports_tournaments.dto.EquipoRequestDto;
 import com.carras.esports_tournaments.dto.EquipoResponseDto;
-import com.carras.esports_tournaments.model.Equipo;
 import com.carras.esports_tournaments.services.EquipoService;
 
 import jakarta.validation.Valid;

@@ -35,6 +35,7 @@ import com.carras.esports_tournaments.repositories.MiembroEquipoRepository;
 import com.carras.esports_tournaments.repositories.TorneoRepository;
 import com.carras.esports_tournaments.repositories.UsuarioRepository;
 
+
 @ExtendWith(MockitoExtension.class)
 public class InscripcionServiceTest {
 
@@ -75,15 +76,24 @@ public class InscripcionServiceTest {
                 .fechaCreacion(LocalDate.now())
                 .build();
 
+        Usuario usuarioPrueba = Usuario.builder()
+                .id(1L).username("markiwi").nombre("Marcos").build();
+
+        MiembroEquipo miembroPrueba = MiembroEquipo.builder()
+                .id(1L).usuario(usuarioPrueba).equipo(equipoPrueba).rol(RolMiembro.ADMINISTRADOR).build();
+
         when(torneoRepository.findById(1L)).thenReturn(Optional.of(torneoPrueba));
         when(equipoRepository.findById(1L)).thenReturn(Optional.of(equipoPrueba));
+        when(usuarioRepository.findById(1L)).thenReturn(Optional.of(usuarioPrueba));
+        when(miembroEquipoRepository.findByUsuarioAndEquipo(usuarioPrueba, equipoPrueba))
+                .thenReturn(Optional.of(miembroPrueba));
         when(inscripcionRepository.countByTorneo(torneoPrueba)).thenReturn(8L);
 
         BusinessException excepcion = assertThrows(BusinessException.class, () -> {
             inscripcionService.inscribirEquipo(1L, 1L, 1L);
         });
 
-        assertEquals("Capacidad máxima de integrantes del torneo superada.", excepcion.getMessage());
+        assertEquals("Capacidad máxima de integrantes del torneo superada", excepcion.getMessage());
 
         verify(inscripcionRepository, never()).save(any());
     }
@@ -127,5 +137,5 @@ public class InscripcionServiceTest {
 
         verify(inscripcionRepository, times(1)).save(any(Inscripcion.class));
 
-    }
+    } 
 }

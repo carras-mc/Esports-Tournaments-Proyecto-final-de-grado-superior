@@ -14,9 +14,6 @@ import lombok.Setter;
 
 @Getter 
 @Setter 
-@AllArgsConstructor 
-@NoArgsConstructor 
-@Builder 
 public class RosterRequestDto {
     
     @NotNull(message = "El ID del usuario es obligatorio")
@@ -32,7 +29,11 @@ public class RosterRequestDto {
     @NoArgsConstructor
     @Builder
     public static class JugadorRosterDto {
+
+        @NotNull(message = "El ID del usuario es obligatorio")
         private Long usuarioId;
+
+        @NotNull(message = "El rol del jugador es obligatorio")
         private RolJugador rol;
     }
 }
